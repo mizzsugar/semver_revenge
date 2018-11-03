@@ -2,17 +2,20 @@ import unittest
 
 
 class SemVer:
-    pass
+    def __init__(self, major: int, minor: int, patch: int) -> None:
+        self.major = major
+        self.minor = minor
+        self.patch = patch
 
+    def get_notation(self) -> str:
+        return "1.4.2"
 
 class TestSemVer(unittest.TestCase):
     def test_major_minor_patchにそれぞれ1と4と2を与えてバージョンオブジェクトを作成(self):
-        semver = SemVer(1, 4, 2)
-        actual = semver.get_notation()
+        self.assertEqual("1.4.2", SemVer(1, 4, 2).get_notation())
 
-        expected = "1.4.2"
-        self.assertEqual(expected, actual)
-
+    def test_major_minor_patchにそれぞれ2と30と400を与えてバージョンオブジェクトを作成(self):
+        self.assertEqual("2.30.400", SemVer(2, 30, 400).get_notation())
 
 if __name__ == "__main__":
     unittest.main()
