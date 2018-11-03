@@ -18,6 +18,8 @@ class TestSemVer(unittest.TestCase):
     def test_major_minor_patchにそれぞれ2と30と400を与えてバージョンオブジェクトを作成(self):
         self.assertEqual("2.30.400", SemVer(2, 30, 400).get_notation())
 
+    def test_同じバージョンを持つ2つのオブジェクトが等しいことを確認(self):
+        self.assertTrue(SemVer(1, 4, 2) == SemVer(1, 4, 2))
 
 if __name__ == "__main__":
     unittest.main()
