@@ -7,6 +7,11 @@ class SemVer:
     def __init__(self, major: int, minor: int, patch: int) -> None:
         if major < 0:
             raise ValueError("メジャーバージョンは0以上")
+        if minor < 0:
+            raise ValueError("マイナーバージョンは0以上")
+        if patch < 0:
+            raise ValueError("パッチバージョンは0以上")
+        
         self.major = major
         self.minor = minor
         self.patch = patch
